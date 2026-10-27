@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cloudflare Pages / Wrangler local state
+.wrangler
+
+# OS
+Thumbs.db
+
+# Env files (no env vars needed today; *.local already covers .env.local)
+.env
+.env.*
+!.env.example

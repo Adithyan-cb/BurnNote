@@ -1,0 +1,78 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: min(100%, var(--header-width));
+  margin: 0 auto;
+  padding: var(--space-5) clamp(1rem, 5vw, 2.5rem) 0;
+}
+
+.header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.header__mark {
+  flex: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: var(--ember);
+  filter: drop-shadow(0 0 10px rgba(255, 107, 44, 0.55));
+}
+
+.header__name {
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.header__sound {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: rgba(30, 24, 21, 0.55);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background-color var(--transition),
+    transform var(--transition);
+}
+
+.header__sound svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.header__sound:hover {
+  border-color: var(--ember);
+  background: rgba(255, 107, 44, 0.08);
+  color: var(--flame);
+}
+
+.header__sound:active {
+  transform: scale(0.95);
+}
+
+.header__sound[aria-pressed='true'] {
+  color: var(--ash);
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding-top: var(--space-4);
+  }
+
+  .header__mark {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}

@@ -1,0 +1,41 @@
+.afterburn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fade-in var(--duration-slow) var(--ease-soft) forwards;
+  animation-delay: 800ms;
+  opacity: 0;
+}
+
+.afterburn__button {
+  padding: 14px 36px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: 1px solid var(--color-ember);
+  color: var(--color-ember);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all var(--duration-fast) ease;
+}
+
+.afterburn__button:hover {
+  background: var(--color-ember);
+  color: var(--color-bg);
+}
+
+.afterburn__button:focus-visible {
+  outline: 2px solid var(--color-glow);
+  outline-offset: 3px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

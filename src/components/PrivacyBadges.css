@@ -1,0 +1,55 @@
+.badges {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: min(100%, 48rem);
+  margin-top: var(--space-xl);
+}
+
+.badges__card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  background: rgba(16, 14, 13, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.badges__icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+  color: var(--primary);
+}
+
+.badges__card:nth-child(2) .badges__icon {
+  color: var(--secondary);
+}
+
+.badges__card:nth-child(3) .badges__icon {
+  color: var(--tertiary);
+}
+
+.badges__title {
+  margin-bottom: var(--space-xs);
+  color: var(--text);
+  font-size: var(--label-md);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.badges__body {
+  color: var(--outline);
+  font-size: var(--body-sm);
+  line-height: 1.55;
+}
+
+@media (max-width: 860px) {
+  .badges {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,43 +1,42 @@
 :root {
-  --bg: #14100e;
-  --surface: #1e1815;
-  --surface-raised: #251d19;
-  --border: #3a2e28;
-  --text: #f2e8dc;
-  --text-secondary: #9a8b7e;
-  --ember: #ff6b2c;
-  --flame: #ffa040;
-  --glow: #ffd27a;
-  --ash: #6b6560;
+  /* Color Tokens - Cinder Design System */
+  --color-bg: #14100E;
+  --color-paper: #F2E8DC;
+  --color-paper-edge: #E4D6C4;
+  --color-ink: #2A211C;
+  --color-ink-muted: #8A7B6E;
+  --color-text: #F2E8DC;
+  --color-text-muted: #9A8B7E;
+  --color-border: #3A2E28;
+  --color-ember: #FF6B2C;
+  --color-flame: #FFA040;
+  --color-glow: #FFD27A;
+  --color-char: #1A0F0A;
+  --color-ash: #6B6560;
 
-  --font-serif: 'Lora', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
-  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Typography */
+  --font-paper: 'Lora', Georgia, serif;
+  --font-ui: 'Inter', system-ui, sans-serif;
 
-  --step--1: clamp(0.8rem, 0.77rem + 0.14vw, 0.9rem);
-  --step-0: clamp(0.95rem, 0.91rem + 0.2vw, 1.06rem);
-  --step-1: clamp(1.13rem, 1.06rem + 0.34vw, 1.3rem);
-  --step-2: clamp(1.45rem, 1.28rem + 0.85vw, 1.9rem);
-  --step-3: clamp(2rem, 1.6rem + 2vw, 3.15rem);
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
 
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4.5rem;
+  /* Shape and depth */
+  --radius-paper: 4px;
+  --radius-pill: 999px;
+  --shadow-paper: 0 20px 60px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.4);
+  --glow-ambient: 0 0 120px rgba(255, 107, 44, 0.06);
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
-  --radius-full: 999px;
-
-  --container: 44rem;
-  --header-width: 72rem;
-
-  --focus-ring: 2px solid var(--glow);
-  --glow-soft: 0 0 90px rgba(255, 107, 44, 0.12);
-  --glow-strong: 0 0 120px rgba(255, 107, 44, 0.2);
-  --transition: 180ms ease-out;
+  /* Motion */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 600ms;
+  --duration-burn: 5500ms;
 }

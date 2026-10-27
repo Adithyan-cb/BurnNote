@@ -1,32 +1,46 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import WritingArea from './components/WritingArea'
+import BurnButton from './components/BurnButton'
+import BurnEffect from './components/BurnEffect'
+import AfterBurn from './components/AfterBurn'
 
-function App() {
-  const [phase] = useState('writing')
+export default function App() {
+  const [phase, setPhase] = useState('writing')
+  const [text, setText] = useState('')
+
+  const canBurn = phase === 'writing' && text.trim().length > 0
+
+  const handleBurn = useCallback(() => {
+    if (canBurn) {
+      setPhase('burning')
+    }
+  }, [canBurn])
+
+  const handleBurnComplete = useCallback(() => {
+    setText('')
+    setPhase('aftermath')
+  }, [])
+
+  const handleWriteAgain = useCallback(() => {
+    setPhase('writing')
+  }, [])
 
   return (
     <div className="app">
       <Header />
-
-      <main className="app__main">
+      <main className="main">
         {phase === 'writing' && (
-          <section className="shell" aria-labelledby="writing-prompt">
-            <p className="shell__eyebrow">A quiet place to let go</p>
-            <h1 className="shell__prompt" id="writing-prompt">
-              What do you want to let go of?
-            </h1>
-            <p className="shell__hint">
-              Write it down. Burn it. Nothing is saved, nothing is sent.
-            </p>
-            <div className="shell__page" aria-hidden="true" />
-          </section>
+          <>
+            <WritingArea text={text} onChange={setText} />
+            <BurnButton disabled={!canBurn} onBurn={handleBurn} />
+          </>
         )}
+        {phase === 'burning' && <BurnEffect text={text} onComplete={handleBurnComplete} />}
+        {phase === 'aftermath' && <AfterBurn onWriteAgain={handleWriteAgain} />}
       </main>
-
       <Footer />
     </div>
   )
 }
-
-export default App

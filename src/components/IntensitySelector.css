@@ -1,0 +1,41 @@
+.intensity__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--outline);
+  font-size: var(--label-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intensity__options {
+  display: inline-flex;
+  gap: var(--space-xs);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  background: var(--surface-lowest);
+}
+
+.intensity__btn {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--label-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    color var(--transition),
+    background-color var(--transition);
+}
+
+.intensity__btn:hover {
+  color: var(--text);
+}
+
+.intensity__btn--active {
+  color: var(--primary);
+  font-weight: 700;
+  background: var(--surface-high);
+}

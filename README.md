@@ -14,8 +14,8 @@ These were agreed before implementation and should only change with a deliberate
 
 | Item | Decision |
 | --- | --- |
-| **Project name** | **BurnNote** (working name; branding stays flexible until domain/name checks at launch) |
-| **Domain** | Not yet claimed. Candidates to verify at M5: `burnnote.app`, `burnnote.site`, `burnnote.xyz`. No purchase needed until launch. |
+| **Project name** | **BurnNote** is the internal working name only. **Phase 0 conflict check failed:** `burnnote.com` is an existing self-destructing-message product ("Burn Note", active since ~2013); "Burner Note" (`burnernote.com`) and "Burn Notes" (iOS App Store) are also in the same space. Do **not** launch under BurnNote without a trademark search and legal review. Final launch name is decided at M5. **Do not spend on branding or domains until then.** |
+| **Domain** | `burnnote.com` is taken by the existing product — ruled out. No domain will be purchased for the working name. Once the final name is chosen at M5, verify availability and claim a `.com` plus one fallback. |
 | **Hosting** | **Cloudflare Pages** — static deploy, preview deploys per branch, HTTPS, and a `public/_headers` file for a strict CSP. |
 | **Audio source** | **CC0 / royalty-free packs** (freesound.org and similar). Normalize loudness on import. Every asset must be logged in [Asset licenses](#asset-licenses). Total audio budget: **under 1 MB**. |
 | **Typography** | **Lora** for the writing area (soft literary serif) + **Inter** for UI controls (clean sans). Self-hosted via `@fontsource/lora` and `@fontsource/inter` — no third-party font requests, keeps CSP strict. |
@@ -25,6 +25,20 @@ These were agreed before implementation and should only change with a deliberate
 | **Audio engine** | Howler.js, lazy-initialized on first user interaction to satisfy autoplay policies. |
 | **Privacy** | No backend, no user accounts, no network calls after load, no storage of user text. The only thing allowed in `localStorage` is the mute preference. No third-party trackers. |
 | **Analytics** | None at launch. If added later, only cookie-less page-view/burn-count tooling (e.g. Cloudflare Web Analytics) — never anything that touches note content. |
+
+### Naming: Phase 0 finding
+
+The name check required by Phase 0 / PRD §14 found conflicts:
+
+- **Burn Note** — `burnnote.com`, a self-destructing-message product active since ~2013 (Crunchbase).
+- **Burner Note** — `burnernote.com`, an open-source self-destructing-notes service (2021).
+- **Burn Notes** — an iOS App Store app (2025).
+
+Consequences:
+
+- **BurnNote stays as the internal/dev name** (repo, package, docs) and must not be used in launch branding, the domain, or store listings without legal review.
+- **PRD §3 already refers to the product as "Cinder"** once ("Cinder is a reflective tool, not a clinical one"), suggesting a prior working name — treat **Cinder** as a candidate too, but run a fresh conflict check on it.
+- Action at M5: shortlist names → trademark search → domain availability → pick. Keep the visible product name in a single copy/config constant once M1 starts, so renaming is a one-line change.
 
 ### Dependency budget
 

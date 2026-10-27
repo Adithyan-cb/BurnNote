@@ -1,31 +1,30 @@
 .writing-area {
   width: min(680px, 90vw);
-  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-.writing-area::before {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(ellipse at center, rgba(255, 107, 44, 0.06) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -1;
+.writing-area__container {
+  position: relative;
+  width: 100%;
+  height: min(60vh, 480px);
+  border-radius: var(--radius-paper);
+  transition: box-shadow var(--duration-base) var(--ease-soft);
 }
 
 .writing-area__textarea {
   width: 100%;
-  height: min(60vh, 480px);
+  height: 100%;
   padding: var(--space-8);
-  border: 1px solid var(--color-paper-edge);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-paper);
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-paper);
   font-size: 20px;
   line-height: 1.7;
   resize: none;
   outline: none;
-  box-shadow: var(--shadow-paper);
   caret-color: var(--color-ember);
 }
 
@@ -35,19 +34,21 @@
 }
 
 .writing-area__textarea:focus {
-  box-shadow: var(--shadow-paper), var(--glow-ambient);
+  outline: none;
 }
 
-.writing-area__textarea::-webkit-resizer {
-  display: none;
+.writing-area__container:focus-within {
+  box-shadow: 0 0 80px rgba(255, 107, 44, 0.08);
 }
 
 @media (max-width: 480px) {
   .writing-area {
     width: 92vw;
   }
-  .writing-area__textarea {
+  .writing-area__container {
     height: min(50vh, 400px);
+  }
+  .writing-area__textarea {
     padding: var(--space-6);
     font-size: 18px;
   }

@@ -1,10 +1,5 @@
 /**
- * Splits a string into per-character span nodes.
- *
- * Returns `{ chars, container }` where `chars` is an ordered array of span
- * elements (reading order: left→right, top→bottom) and `container` is the
- * wrapper div. M1 does not call this; M2 invokes it at burn-time only so
- * typing stays fast during writing.
+ * Splits a string into per-line span nodes for bottom-to-top burn effect.
  */
 export function splitText(text) {
   const container = document.createElement('div')
@@ -12,11 +7,24 @@ export function splitText(text) {
   container.style.wordBreak = 'break-word'
 
   const chars = []
-  for (const char of text) {
-    const span = document.createElement('span')
-    span.textContent = char
-    container.appendChild(span)
-    chars.push(span)
+  // Split by lines first
+  const lines = text.split('\n')
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const lineSpan = document.createElement('span')
+    lineSpan.style.display = 'block'
+    for (let j = 0; j < line.length; j++) {
+      const char = line[j]
+      const span = document.createElement('span')
+      span.textContent = char
+      lineSpan.appendChild(span)
+      chars.push(span)
+    }
+    if (i < lines.length - 1) {
+      const br = document.createElement('br')
+      lineSpan.appendChild(br)
+    }
+    container.appendChild(lineSpan)
   }
 
   return { chars, container }
